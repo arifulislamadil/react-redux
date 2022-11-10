@@ -14,8 +14,7 @@ function App() {
       <Route path = "/product/:productId" element ={<ProductDetail/>}/>
       <Route path = "*" element ={<NotFound/>}/>
     </Routes>
-    </BrowserRouter>
-   
+    </BrowserRouter> 
   );
 }
 
