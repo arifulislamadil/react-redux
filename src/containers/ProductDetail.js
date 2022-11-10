@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeSelectedProduct, fetchProduct, setProducts } from '../redux/action/productAction';
+import { removeSelectedProduct, fetchProduct } from '../redux/action/productAction';
 
 const ProductDetail = () => {
     const product = useSelector((state)=>state.product);
-    const {image,title,price, category, description} = product;
-    const {productId} = useParams();
-    const dispatch = useDispatch()
- 
 
+    const {image,title,price, category, description} = product;
+
+    const {productId} = useParams();
+
+    const dispatch = useDispatch()
  
     useEffect(()=>{
         if(productId && product !== "") dispatch(fetchProduct(productId));
@@ -18,6 +18,8 @@ const ProductDetail = () => {
             dispatch(removeSelectedProduct())
         }
     },[productId])
+
+
     return (
         <div style={{marginTop: "20px"}} className="ui grid container">
         {Object.keys(product).length === 0 ? (

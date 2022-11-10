@@ -11,9 +11,6 @@ export const fetchProduct = (id) => async (dispatch) => {
     dispatch({ type: ActionTypes.SELECTED_PRODUCT, payload: response.data })
 };
 
-
-
-
 export const selectedProduct = (product) => {
     return {
         type: ActionTypes.SELECTED_PRODUCT,
